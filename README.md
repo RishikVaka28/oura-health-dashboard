@@ -20,9 +20,4 @@ This project bridges the gap between body signals and cloud analytics. Using a c
 | Database         | PostgreSQL               |
 | Deployment (local)| Batch Scripts + WSL     |
 
-## 🚀 How to Run Locally
 
-1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/RishikVaka28/seamless-sync-dashboard.git
-   cd seamless-sync-dashboard
