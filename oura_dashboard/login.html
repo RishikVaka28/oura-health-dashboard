@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login | Oura Dashboard</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1587502537745-72b4c6536c7b?auto=format&fit=crop&w=1650&q=80') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 1s ease-in;
+    }
+
+    .login-box {
+      background: rgba(20, 20, 20, 0.9);
+      padding: 40px;
+      border-radius: 10px;
+      width: 350px;
+      color: white;
+      box-shadow: 0 0 30px rgba(255, 0, 0, 0.4);
+      text-align: center;
+      animation: slideUp 1s ease-out;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+      font-size: 26px;
+    }
+
+    input {
+      width: 90%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      font-size: 16px;
+    }
+
+    button {
+      background: #e50914;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #f6121d;
+    }
+
+    .error {
+      margin-top: 10px;
+      color: #ff6b6b;
+    }
+
+    .logo-screen {
+      display: none;
+      background: black;
+      width: 100vw;
+      height: 100vh;
+      position: fixed;
+      top: 0; left: 0;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .text-intro {
+      font-size: 40px;
+      font-weight: bold;
+      color: #e50914;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-align: center;
+      animation: glowText 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glowText {
+      0% {
+        opacity: 0.3;
+        text-shadow: 0 0 10px #e50914, 0 0 20px #e50914, 0 0 30px #e50914;
+        transform: scale(0.9);
+      }
+      100% {
+        opacity: 1;
+        text-shadow: 0 0 20px #e50914, 0 0 40px #ff1a1a, 0 0 60px #ff1a1a;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes slideUp {
+      0% { transform: translateY(80px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Login Form -->
+  <div class="overlay" id="login-overlay">
+    <div class="login-box">
+      <h2>Login to Oura Dashboard</h2>
+      <input type="text" id="username" placeholder="Username" />
+      <input type="password" id="password" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <div class="error" id="error"></div>
+    </div>
+  </div>
+
+  <!-- Animated Netflix-Style Text -->
+  <div class="logo-screen" id="logo-screen">
+    <div class="text-intro">Dashboard Loading...</div>
+  </div>
+
+  <script>
+    function login() {
+      const uname = document.getElementById("username").value;
+      const pword = document.getElementById("password").value;
+      const errorEl = document.getElementById("error");
+
+      if (uname === "rishi" && pword === "password") {
+        document.getElementById("login-overlay").style.display = "none";
+        document.getElementById("logo-screen").style.display = "flex";
+
+        setTimeout(() => {
+          window.location.href = "http://localhost:8051";
+        }, 3000);
+      } else {
+        errorEl.innerText = "Invalid credentials!";
+      }
+    }
+  </script>
+</body>
+</html>
