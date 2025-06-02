@@ -1,3 +1,4 @@
+# we can run app.py i modified it so that it automatically runs both files
 @echo off
 echo Launching app.py and oura.py silently...
 
